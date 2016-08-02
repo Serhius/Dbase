@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block DBase %}
+        {% if username %}
+        <div class="large-6 column">
+            {% if errors %}
+                <ul>
+                    {% for error in errors %}
+                    <li style="color: red;">{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+		    <form action="" method="POST">
+                {% csrf_token %}
+                <label for="number">Номер телефона</label>
+                <input type="text" name="number" id="number" value="{{ number }}">
+                <label for="oper">Оператор</label>
+                <input type="text" name="oper" id="oper" value="{{ oper }}">
+                <label for="date">Дата</label>
+                <input type="date" name="date" id="date">
+                <label for="time">Время</label>
+                <input type="time" name="time" id="time">
+                <label for="status">Статус</label>
+                <input type="text" name="status" id="status" value="{{ status }}">
+                <label for="result">Результат</label>
+                <input type="text" name="result" id="result">
+                {% if DBase_error %}
+                <label class="error">{{ DBase_error }}</label>
+                {% endif %}
+                <input class="button" type="submit" value="Поиск">
+                <input class="button" type="reset" value="Очистить">
+            </form>
+        </div>
+            
+       {% endif %}
+{% endblock %}

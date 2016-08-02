@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block DBase %}
+        {% if username %}
+        <div>
+            <table>
+                <tr>
+                    <td>№</td>
+                    <td>Телефон</td>
+                    <td>Оператор</td>
+                    <td>Дата</td>
+                    <td>Время</td>
+                    <td>Статус</td>
+                    <td>Вид запроса</td>
+                </tr>
+                    {% for dbase in dbases %}
+                    <tr>
+                        <td>{{ dbase.id }}</td>
+                        <td>{{ dbase.number }}</td>
+                        <td>{{ dbase.oper }}</td>
+                        <td>{{ dbase.date }}</td>
+                        <td>{{ dbase.time }}</td>
+                        <td>{{ dbase.stat }}</td>
+                        <td>{{ dbase.reason }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+{% endblock %}

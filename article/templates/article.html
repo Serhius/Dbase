@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+
+{% block article %}
+	{% if username %}
+		<div class="large-8 medium-8 small-8 column panel">
+			<h5>ФИО: {{ article.article_first_name }} {{ article.article_second_name }} {{ article.article_third_name }}</h5>
+		</div>
+		<div class="large-12 medium-12 small-12 column left">
+			<p><h5>Выданные паспорта:</h5></p>
+				<div>
+					<table>
+						<tr>
+							<td>Фамилия</td>
+							<td>Имя</td>
+							<td>Отчество</td>
+							<td>№ паспорта</td>
+							<td>Дата выдачи</td>
+							<td>Кем выдан</td>
+						</tr>
+					{% for comment in comments %}
+						<tr>
+							<td>{{ article.article_first_name }}</td>
+							<td>{{ article.article_second_name }}</td>
+							<td>{{ article.article_third_name }}</td>
+							<td>{{ comment.comments_pasport_number }}</td>
+							<td>{{ comment.comments_takedate }}</td>
+							<td>{{ comment.comments_other }}</td>
+						</tr>
+					{% endfor %}
+					</table>
+				</div>
+		</div>
+	{% endif %}
+{% endblock %}
