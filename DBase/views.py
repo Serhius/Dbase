@@ -5,7 +5,6 @@ from django.http.response import HttpResponse, Http404, HttpResponseRedirect
 from django.template.loader import get_template
 from django.template import Context
 from django.shortcuts import render_to_response, redirect
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.context_processors import csrf
 from django.core.paginator import Paginator
 from django.contrib import auth
